@@ -1,10 +1,7 @@
 # Context
 
-This small project was created to explore usage of HTMX, templates, and Postgres using Go.\
+This small project was created to explore usage of HTMX, templates, and SQLite using Go.\
 This is not meant to be a *production-ready* project, instead it aims to enable me to explore concepts in Go.
-
-## To Do
-*Empty for now*
 
 # Installation
 
@@ -17,8 +14,8 @@ git clone https://github.com/spsgomes/go-games-htmx.git
 cd go-games-htmx
 ```
 
-## Dependencies
-- API Key on [Giant Bomb's API](https://www.giantbomb.com/api)
+## Requirements
+- API Key on [Giant Bomb's API](https://www.giantbomb.com/api). Place it on `.env` file
 
 ## Thank you
 - [Giant Bomb's API](https://www.giantbomb.com/api)
