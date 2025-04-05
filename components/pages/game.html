@@ -1,0 +1,110 @@
+{{ define "head" }}
+<title>{{ .Title }} - Go Games Browser</title>
+{{ end }}
+
+{{ define "body" }}
+<main class="container game-detail">
+	<a href="/" class="go-back">Back</a>
+
+	<article class="game">
+		<header>
+			{{ if .ImageLarge }}
+			<aside>
+				<div class="image">
+					<img src="{{ .ImageLarge }}" alt="Image for {{.Title}}">
+				</div>
+			</aside>
+			{{ end }}
+
+			<div class="main-info">
+				<h1>{{ .Title }}</h1>
+				<p>{{ .ShortDescription }}</p>
+
+				<table>
+					{{ if .GameRating }}
+					<tr>
+						<th scope="row">Ratings</td>
+						<td>
+							{{ $length := len .GameRating }}
+							{{ range $i, $item := .GameRating }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .Platforms }}
+					<tr>
+						<th scope="row">Platforms</td>
+						<td>
+							{{ $length := len .Platforms }}
+							{{ range $i, $item := .Platforms }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .Developers }}
+					<tr>
+						<th scope="row">Developers</td>
+						<td>
+							{{ $length := len .Developers }}
+							{{ range $i, $item := .Developers }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .Genres }}
+					<tr>
+						<th scope="row">Genres</td>
+						<td>
+							{{ $length := len .Genres }}
+							{{ range $i, $item := .Genres }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .Publishers }}
+					<tr>
+						<th scope="row">Publishers</td>
+						<td>
+							{{ $length := len .Publishers }}
+							{{ range $i, $item := .Publishers }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .SimilarGames }}
+					<tr>
+						<th scope="row">Similar Games</td>
+						<td>
+							{{ $length := len .SimilarGames }}
+							{{ range $i, $item := .SimilarGames }}
+							<small>{{ . }}{{ if isNotLast $i $length }}, {{ end }}</small>
+							{{ end }}
+						</td>
+					</tr>
+					{{ end }}
+
+					{{ if .ReleaseDate }}
+					<tr>
+						<th scope="row">Release Date</td>
+						<td><small>{{ .ReleaseDate }}</small></td>
+					</tr>
+					{{ end }}
+				</table>
+			</div>
+		</header>
+
+		<div class="description">{{ if .Description }}<p>{{ .Description }}</p>{{ else }}No additional information available.{{ end }}</div>
+	</article>
+
+</main>
+{{ end }}

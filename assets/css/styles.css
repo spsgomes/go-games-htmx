@@ -1,0 +1,178 @@
+
+:root,
+:host {
+	--pico-font-family: "Lato", sans-serif;
+}
+
+.error-message {
+	display: inline-block;
+
+	padding-left: 30px;
+	min-height: 24px;
+
+	line-height: 24px;
+
+	background-image: var(--pico-icon-invalid);
+	color: var(--pico-del-color);
+}
+
+.custom-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+
+}
+@media (min-width: 768px) {
+	.custom-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (min-width: 1024px) {
+	.custom-grid {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media (min-width: 1280px) {
+	.custom-grid {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+.custom-grid > article {
+	margin-bottom: 0;
+}
+
+.go-back {
+	display: inline-block;
+	position: relative;
+	padding-left: 1.35rem;
+	margin-bottom: var(--pico-spacing);
+	line-height: 100%;
+}
+.go-back:before {
+	content:"";
+	position: absolute;
+	width: 1.2rem;
+	height: 1.2rem;
+	top: -0.05rem;
+	left: 0;
+
+	background-image: var(--pico-icon-chevron);
+	background-position: center left;
+	background-size: 1.2rem auto;
+	background-repeat: no-repeat;
+
+	rotate: 90deg;
+}
+
+form.htmx-request input[type="search"] {
+	background-image: var(--pico-icon-loading);
+}
+
+#game-list > article {
+	display: flex;
+	flex-direction: column;
+	border: var(--pico-border-width) solid var(--pico-card-border-color);
+}
+#game-list > article[onclick] {
+	cursor: pointer;
+	transition: border-color var(--pico-transition);
+}
+#game-list > article[onclick]:hover {
+	border-color: var(--pico-form-element-placeholder-color)
+}
+#game-list > article > .image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+
+	height: auto;
+	max-height: 600px;
+
+	margin-bottom: var(--pico-spacing);
+}
+#game-list > article.type-company > .image {
+	height: 180px;
+	min-height: 180px;
+	max-height: 180px;
+}
+@media (min-width: 768px) {
+	#game-list > article.type-game > .image {
+		height: 220px;
+		min-height: 220px;
+		max-height: 220px;
+	}
+}
+@media (min-width: 1024px) {
+	#game-list > article.type-game > .image {
+		height: 300px;
+		min-height: 300px;
+		max-height: 300px;
+	}
+}
+@media (min-width: 1550px) {
+	#game-list > article.type-game > .image {
+		height: 400px;
+		min-height: 400px;
+		max-height: 400px;
+	}
+}
+#game-list > article > .platforms + .release-date {
+	color: var(--pico-muted-color)
+}
+#game-list > article > .platforms,
+#game-list > article > .release-date {
+	margin-top: auto;
+}
+#game-list > article > .platforms + .release-date {
+	margin-top: calc(var(--pico-spacing) / 2);
+}
+
+#infinite-scroller {
+	visibility: hidden;
+	margin-top: calc(var(--pico-spacing) * 2);
+	text-align: center;
+}
+#infinite-scroller > [aria-busy="true"]:before {
+	width: 1.5em;
+	height: 1.5em;
+	background-size: 1.5em;
+}
+
+#game-list.htmx-request + #infinite-scroller {
+	visibility: visible;
+}
+
+.game-detail .description figure {
+	width: auto !important;
+}
+.game-detail .description figure[data-align="right"] {
+	float: right;
+	margin: var(--pico-spacing);
+	margin-top: 0;
+	margin-right: 0;
+}
+.game-detail .description figure[data-align="left"] {
+	float: left;
+	margin: var(--pico-spacing);
+	margin-top: 0;
+	margin-left: 0;
+}
+.game-detail .description figure[data-align="center"] {
+	margin: var(--pico-spacing);
+}
+.game-detail .description .fluid-height {
+	display: block;
+	padding-bottom: 0 !important;
+}
+.game-detail .game header {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: var(--pico-spacing);
+}
+.game-detail .game .image img {
+	width: 100%;
+}

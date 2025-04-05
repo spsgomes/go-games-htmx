@@ -1,0 +1,18 @@
+{{ define "results" }}
+{{ if .Items }}
+<h3>Found {{ .Pagination.TotalFound }} results for "{{ .Query }}"</h3>
+
+<div id="game-list" class="custom-grid">
+	{{ template "results_items" . }}
+</div>
+
+<div id="infinite-scroller">
+	<span aria-busy="true"></span>
+</div>
+
+{{ else if .ErrorMessage }}
+<small class="error-message">{{ .ErrorMessage }}</small>
+{{ else }}
+<small class="error-message">No results found for "{{ .Query }}"</small>
+{{ end }}
+{{ end }}

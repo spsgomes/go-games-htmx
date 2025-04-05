@@ -1,0 +1,26 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="light dark">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+		<link href="/assets/css/pico.red.min.css" rel="stylesheet">
+		<link href="/assets/css/styles.css" rel="stylesheet">
+
+		<script defer src="/assets/js/htmx.2.0.4.min.js"></script>
+		<script defer src="/assets/js/script.js"></script>
+
+		{{ template "head" . }}
+	</head>
+
+	<body>{{ template "body" . }}</body>
+
+</html>
+{{ end }}

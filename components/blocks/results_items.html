@@ -1,0 +1,30 @@
+{{ define "results_items" }}
+	{{ if .Items }}
+		{{ $pageNext := .Pagination.PageNextLink }}
+
+		{{ $length := len .Items }}
+		{{ range $i, $item := .Items }}
+		<article class="type-{{ .Type }}" onclick="window.location.href={{ .Link }}"{{ if and (isLast $i $length) ($pageNext) }} hx-trigger="revealed" hx-target="#game-list" hx-get="{{ $pageNext }}" hx-swap="beforeend" hx-indicator="#game-list"{{end}}>
+			{{ if .ImageSmall }}
+			<div class="image">
+				<img src="{{ .ImageSmall }}" alt="Image for {{.Title}}">
+			</div>
+			{{ end }}
+			<div class="info">
+				<b>{{.Title}}</b>
+				<p>{{ .ShortDescription }}</p>
+			</div>
+			{{ if .Platforms }}
+			<div class="platforms">
+				<small>Available on:</small><br/>
+				{{ $platformsLength := len .Platforms }}
+				{{ range $j, $platforms := .Platforms }}
+				<small>{{ . }}{{ if isNotLast $j $platformsLength }}, {{ end }}</small>
+				{{ end }}
+			</div>
+			{{ end }}
+			{{ if .ReleaseDate }}<small class="release-date">Released {{ .ReleaseDate }}</small>{{ end }}
+		</article>
+		{{end}}
+	{{ end }}
+{{ end }}

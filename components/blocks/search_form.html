@@ -1,0 +1,6 @@
+{{ define "search_form" }}
+<form hx-get="/search" hx-target="#results" hx-trigger="submit changed,keyup changed delay:1000ms" hx-indicator="" hx-disabled-elt="#search" hx-on::after-request="htmx.find('#search').focus()">
+	<input type="search" value="" placeholder="Search" name="q" id="search" aria-label="Search" aria-describedby="search-helper">
+	<small id="search-helper">Search by name, description, and much more</small>
+</form>
+{{ end }}

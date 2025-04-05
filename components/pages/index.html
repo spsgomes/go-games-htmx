@@ -1,0 +1,16 @@
+{{ define "head" }}
+<title>Go Games Browser</title>
+{{ end }}
+
+{{ define "body" }}
+<main class="container page-index">
+	<h1>{{ .Title }}</h1>
+	<p>{{ .Intro }}</p>
+
+	{{ template "search_form" . }}
+
+	<section id="results" class="overflow-auto">
+		{{ template "results" . }}
+	</section>
+</main>
+{{ end }}
